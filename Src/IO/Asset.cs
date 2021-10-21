@@ -125,7 +125,7 @@ namespace Dissonance.Engine.IO
 				await Task.Yield(); // This transfers the method's execution to a worker thread.
 			}
 
-			using var stream = Source.OpenStream(AssetPath);
+			await using var stream = Source.OpenStream(AssetPath);
 
 			Value = await assetReader.ReadFromStream(stream, AssetPath, new MainThreadCreationContext(asyncContext));
 

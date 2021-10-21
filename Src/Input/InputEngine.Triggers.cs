@@ -12,7 +12,7 @@ namespace Dissonance.Engine.Input
 
 		private static void InitTriggers()
 		{
-			triggers = new InputTrigger[0];
+			triggers = Array.Empty<InputTrigger>();
 			triggersByName = new Dictionary<string, InputTrigger>();
 		}
 

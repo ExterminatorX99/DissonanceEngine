@@ -11,11 +11,11 @@ namespace Dissonance.Engine.Graphics
 
 		public Framebuffer[] Framebuffers {
 			get => framebuffers;
-			set => framebuffers = value ?? new Framebuffer[0];
+			set => framebuffers = value ?? Array.Empty<Framebuffer>();
 		}
 		public RenderPass[] RenderPasses {
 			get => renderPasses;
-			set => renderPasses = value ?? new RenderPass[0];
+			set => renderPasses = value ?? Array.Empty<RenderPass>();
 		}
 
 		/// <summary>
@@ -40,6 +40,8 @@ namespace Dissonance.Engine.Graphics
 			for (int i = 0; i < renderPasses.Length; i++) {
 				renderPasses[i].Dispose();
 			}
+
+			GC.SuppressFinalize(this);
 		}
 
 		internal void Init()
