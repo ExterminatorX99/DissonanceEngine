@@ -83,9 +83,7 @@ namespace Dissonance.Engine.IO
 				if (!thisLine.StartsWith("f ") && !thisLine.StartsWith("v ") && !thisLine.StartsWith("vt ") && !thisLine.StartsWith("vn ")) {
 					thisLine = reader.ReadLine();
 
-					if (thisLine != null) {
-						thisLine = thisLine.Replace("  ", " ");
-					}
+					thisLine = thisLine?.Replace("  ", " ");
 				} else {
 					thisLine = thisLine.Trim(); // Trim the current line
 					brokenString = thisLine.Split(splitIdentifier, 50); // Split the line into an array, separating the original line by blank spaces
@@ -108,9 +106,7 @@ namespace Dissonance.Engine.IO
 
 					thisLine = reader.ReadLine();
 
-					if (thisLine != null) {
-						thisLine = thisLine.Replace("  ", " ");
-					}
+					thisLine = thisLine?.Replace("  ", " ");
 				}
 			}
 
@@ -162,9 +158,7 @@ namespace Dissonance.Engine.IO
 				&& !thisLine.StartsWith("vc ") && !thisLine.StartsWith("usemap ")) {
 					thisLine = reader.ReadLine();
 
-					if (thisLine != null) {
-						thisLine = thisLine.Replace("  ", " ");
-					}
+					thisLine = thisLine?.Replace("  ", " ");
 
 					continue;
 				}
@@ -251,10 +245,8 @@ namespace Dissonance.Engine.IO
 
 				thisLine = reader.ReadLine();
 
-				if (thisLine != null) {
-					// Some .obj files insert double spaces, this removes them.
-					thisLine = thisLine.Replace("  ", " ");
-				}
+				// Some .obj files insert double spaces, this removes them.
+				thisLine = thisLine?.Replace("  ", " ");
 			}
 
 			reader.Close();

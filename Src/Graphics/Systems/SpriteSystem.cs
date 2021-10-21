@@ -104,11 +104,9 @@ namespace Dissonance.Engine.Graphics
 				ulong key = pair.Key;
 				var batch = pair.Value;
 
-				if (batch.CompoundMesh == null) {
-					batch.CompoundMesh = new Mesh() {
-						BufferUsage = BufferUsageHint.DynamicDraw
-					};
-				}
+				batch.CompoundMesh ??= new Mesh() {
+					BufferUsage = BufferUsageHint.DynamicDraw
+				};
 
 				batchKeysToRemove.Remove(key);
 

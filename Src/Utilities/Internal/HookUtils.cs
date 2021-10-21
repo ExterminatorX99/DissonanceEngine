@@ -13,10 +13,8 @@ namespace Dissonance.Engine.Utilities
 			where TMethodHolder : class
 		{
 			// Check the objects array before proceeding.
-			foreach (var obj in objects) {
-				if (obj == null) {
-					throw new ArgumentException($"'{nameof(objects)}' cannot contain null values.");
-				}
+			if (objects.Any(obj => obj == null)) {
+				throw new ArgumentException($"'{nameof(objects)}' cannot contain null values.");
 			}
 
 			var hookHolderType = typeof(THookHolder);

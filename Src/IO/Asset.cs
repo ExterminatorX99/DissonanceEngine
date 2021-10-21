@@ -34,7 +34,7 @@ namespace Dissonance.Engine.IO
 
 		internal Asset(string name)
 		{
-			if (string.IsNullOrWhiteSpace(name) || name.Any(c => char.IsWhiteSpace(c))) {
+			if (string.IsNullOrWhiteSpace(name) || name.Any(char.IsWhiteSpace)) {
 				throw new ArgumentException("Asset name cannot be null, empty, or contain whitespaces.", nameof(name));
 			}
 

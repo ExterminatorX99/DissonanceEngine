@@ -53,11 +53,9 @@ namespace Dissonance.Engine.Graphics
 
 			Rendering.CheckGLErrors($"Setting up rendering pipeline {GetType().Name}");
 
-			if (framebuffersList != null) {
-				foreach (var framebuffer in framebuffersList) {
-					Framebuffer.Bind(framebuffer);
-					Rendering.CheckFramebufferStatus();
-				}
+			foreach (var framebuffer in framebuffersList) {
+				Framebuffer.Bind(framebuffer);
+				Rendering.CheckFramebufferStatus();
 			}
 
 			Framebuffers = framebuffersList.ToArray();

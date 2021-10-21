@@ -30,7 +30,7 @@ namespace Dissonance.Engine.Utilities
 				return true;
 			}
 
-			if (!(obj is ICollection objCollection)) {
+			if (obj is not ICollection objCollection) {
 				if (throwError) {
 					throw new Exception($"The '{nameof(obj)}' argument's type isn't '{typeof(T).Name}' nor a collection.");
 				}

@@ -82,7 +82,7 @@ namespace Dissonance.Engine.Graphics
 					resetRenderComponents += () => {
 						IRenderComponent component;
 
-						if ((bool)hasComponentMethod?.Invoke(null, null)) {
+						if ((bool)hasComponentMethod.Invoke(null, null)) {
 							component = (IRenderComponent)getComponentMethod.Invoke(null, null);
 						} else {
 							component = (IRenderComponent)Activator.CreateInstance(type);
@@ -196,7 +196,7 @@ namespace Dissonance.Engine.Graphics
 
 			Debug.Log($"Initialized OpenGL {GL.GetString(StringName.Version)}");
 		}
-		
+
 		private static void InstantiateRenderingPipeline()
 		{
 			RenderingPipeline?.Dispose();
@@ -207,7 +207,7 @@ namespace Dissonance.Engine.Graphics
 				RenderingPipeline.Init();
 			}
 		}
-		
+
 		private static void ClearScreen()
 		{
 			GL.Viewport(0, 0, Screen.Width, Screen.Height);
