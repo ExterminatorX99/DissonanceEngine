@@ -1,5 +1,6 @@
 using System.IO;
 using System.Threading.Tasks;
+using System;
 
 namespace Dissonance.Engine.IO
 {
@@ -11,7 +12,7 @@ namespace Dissonance.Engine.IO
 		{
 			byte[] bytes = new byte[stream.Length];
 
-			stream.Read(bytes, 0, bytes.Length);
+			await stream.ReadAsync(bytes);
 
 			return bytes;
 		}

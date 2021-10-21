@@ -11,7 +11,7 @@ namespace Dissonance.Engine.IO
 		{
 			using var reader = new StreamReader(stream);
 
-			return reader.ReadToEnd();
+			return await reader.ReadToEndAsync();
 		}
 	}
 }

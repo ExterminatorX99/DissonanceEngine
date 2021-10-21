@@ -52,7 +52,7 @@ namespace Dissonance.Engine.IO
 			if (assetPath.EndsWith(".gltf")) {
 				byte[] textBytes = new byte[stream.Length - stream.Position];
 
-				stream.Read(textBytes, 0, textBytes.Length);
+				await stream.ReadAsync(textBytes);
 
 				HandleGltf(info, textBytes);
 			} else {

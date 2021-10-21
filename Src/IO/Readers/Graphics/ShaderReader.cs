@@ -16,8 +16,8 @@ namespace Dissonance.Engine.IO
 		public async ValueTask<Asset<Shader>[]> ReadFromStream(Stream stream, string assetPath, MainThreadCreationContext switchToMainThread)
 		{
 			using var reader = new StreamReader(stream);
-			
-			string jsonText = reader.ReadToEnd();
+
+			string jsonText = await reader.ReadToEndAsync();
 			var shaders = new List<Asset<Shader>>();
 
 			var jsonShaders = Assets.Get<JObject>(assetPath, AssetRequestMode.ImmediateLoad).Value.ToObject<Dictionary<string, JsonShaderProgram>>();

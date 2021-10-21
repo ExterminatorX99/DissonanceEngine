@@ -25,7 +25,7 @@ namespace Dissonance.Engine.IO
 			string text;
 
 			using (var reader = new StreamReader(stream)) {
-				text = reader.ReadToEnd();
+				text = await reader.ReadToEndAsync();
 			}
 
 			float scale = 1f;
