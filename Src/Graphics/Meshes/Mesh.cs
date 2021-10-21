@@ -8,7 +8,7 @@ namespace Dissonance.Engine.Graphics
 {
 	public sealed class Mesh : IDisposable
 	{
-		public delegate void ArrayCopyDelegate<T>(uint meshIndex, T[] srcArray, uint srcIndex, Vector3[] dstArray, uint dstIndex, uint length);
+		public delegate void ArrayCopyDelegate<in T>(uint meshIndex, T[] srcArray, uint srcIndex, Vector3[] dstArray, uint dstIndex, uint length);
 
 		public readonly IndexBuffer IndexBuffer;
 		// Cached Vertex Buffers
@@ -22,7 +22,7 @@ namespace Dissonance.Engine.Graphics
 		private readonly CustomVertexBuffer[] VertexBuffers;
 
 		private uint vertexArrayId;
-		
+
 		private PrimitiveType currentPrimitiveType = PrimitiveType.Triangles;
 		private PrimitiveType primitiveTypeToSet = PrimitiveType.Triangles;
 

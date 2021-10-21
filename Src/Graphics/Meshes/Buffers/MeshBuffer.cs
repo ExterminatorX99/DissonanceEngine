@@ -10,7 +10,7 @@ namespace Dissonance.Engine.Graphics
 		void SetData(byte[] byteData);
 	}
 
-	public interface IMeshBuffer<TData> : IMeshBuffer
+	public interface IMeshBuffer<in TData> : IMeshBuffer
 	{
 		void SetData<TProvidedData>(byte[] byteData, Func<TProvidedData, TData> cast) where TProvidedData : unmanaged;
 	}
